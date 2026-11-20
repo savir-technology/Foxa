@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Jeeb Master - Chrome",
+      "request": "launch",
+      "type": "dart",
+      "program": "${workspaceFolder}/master/lib/main.dart",
+      "cwd": "${workspaceFolder}/master",
+      "deviceId": "chrome"
+    }
+  ]
+}

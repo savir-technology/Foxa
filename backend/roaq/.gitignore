@@ -1,0 +1,9 @@
+/vendor/
+/payments/*.log
+/payments/paymob_log.txt
+/config/database.local.php
+/secret.env.php
+/.env
+/.env.*
+!/.env.example
+*.log

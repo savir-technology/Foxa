@@ -1,0 +1,252 @@
+Restarted application in 3,870ms.
+E/flutter (10615): [ERROR:flutter/lib/ui/dart_runtime_hooks.cc(38)] Dart Error: Dart_LookupLibrary: library 'package:delvery/core/services/driver_background_service.dart' not found.
+E/flutter (10615): [ERROR:flutter/shell/common/shell.cc(120)] Dart Error: Dart_LookupLibrary: library 'package:delvery/core/services/driver_background_service.dart' not found.
+[GETX] Instance "DriverApiService" has been created
+[GETX] Instance "DriverSessionService" has been created
+[GETX] Instance "DriverSessionService" has been initialized
+[GETX] Instance "DriverOrdersService" has been created
+[GETX] Instance "DriverOrdersService" has been initialized
+[GETX] Instance "SettingsController" has been created
+[GETX] Instance "SettingsController" has been initialized
+[GETX] Instance "GetMaterialController" has been created
+[GETX] Instance "GetMaterialController" has been initialized
+[GETX] GOING TO ROUTE /
+[GETX] Instance "SplashController" has been created
+[GETX] Instance "SplashController" has been initialized
+D/ConnectivityManager(10615): StackLog: [android.net.ConnectivityManager.unregisterNetworkCallback(ConnectivityManager.java:5579)] [dev.fluttercommunity.plus.connectivity.ConnectivityBroadcastReceiver.onCancel(ConnectivityBroadcastReceiver.java:90)] [io.flutter.plugin.common.EventChannel$IncomingStreamRequestHandler.onListen(EventChannel.java:212)] [io.flutter.plugin.common.EventChannel$IncomingStreamRequestHandler.onMessage(EventChannel.java:197)] [io.flutter.embedding.engine.dart.DartMessenger.invokeHandler(DartMessenger.java:286)] [io.flutter.embedding.engine.dart.DartMessenger.lambda$dispatchMessageToQueue$0$io-flutter-embedding-engine-dart-DartMessenger(DartMessenger.java:313)] [io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)]
+D/ConnectivityManager(10615): StackLog: [android.net.ConnectivityManager.sendRequestForNetwork(ConnectivityManager.java:4744)] [android.net.ConnectivityManager.registerDefaultNetworkCallbackForUid(ConnectivityManager.java:5469)] [android.net.ConnectivityManager.registerDefaultNetworkCallback(ConnectivityManager.java:5436)] [android.net.ConnectivityManager.registerDefaultNetworkCallback(ConnectivityManager.java:5410)] [dev.fluttercommunity.plus.connectivity.ConnectivityBroadcastReceiver.onListen(ConnectivityBroadcastReceiver.java:77)] [io.flutter.plugin.common.EventChannel$IncomingStreamRequestHandler.onListen(EventChannel.java:218)] [io.flutter.plugin.common.EventChannel$IncomingStreamRequestHandler.onMessage(EventChannel.java:197)] [io.flutter.embedding.engine.dart.DartMessenger.invokeHandler(DartMessenger.java:286)] [io.flutter.embedding.engine.dart.DartMessenger.lambda$dispatchMessageToQueue$0$io-flutter-embedding-engine-dart-DartMessenger(DartMessenger.java:313)] [io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)]
+E/FlutterGeolocator(10615): Geolocator position updates stopped
+E/FlutterGeolocator(10615): There is still another flutter engine connected, not stopping location service
+E/FlutterGeolocator(10615): Geolocator position updates started
+[GETX] GOING TO ROUTE /home
+[GETX] REMOVING ROUTE /
+[GETX] Instance "HomeController" has been created
+[GETX] Instance "HomeController" has been initialized
+[GETX] "SplashController" onDelete() called
+[GETX] "SplashController" deleted from memory
+W/WindowOnBackDispatcher(10615): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@bbc216b
+I/VRI[MainActivity]@6877a8d(10615): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@6877a8d
+I/ImeFocusController(10615): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(10615): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/VRI[MainActivity]@6877a8d(10615): handleAppVisibility mAppVisible = true visible = false
+D/VRI[MainActivity]@6877a8d(10615): visibilityChanged oldVisibility=true newVisibility=false
+I/SV[79014825 MainActivity](10615): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{4b5aba9 V.E...... ........ 0,0-1080,2340} of VRI[MainActivity]@6877a8d
+I/SurfaceView(10615): 79014825 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(10615): 79014825 Cur surface: Surface(name=null mNativeObject=-5476376616549190656)/@0x91adfe4
+I/SurfaceView(10615): 79014825 surfaceDestroyed
+I/SV[79014825 MainActivity](10615): surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.FlutterSurfaceView{4b5aba9 V.E...... ........ 0,0-1080,2340}
+I/SV[79014825 MainActivity](10615): updateSurface: mVisible = false mSurface.isValid() = true
+I/BLASTBufferQueue(10615): [4b5aba9 SurfaceView[com.example.delvery/com.example.delvery.MainActivity]@0#7](f:0,a:1,s:0) destructor()
+D/BufferQueueConsumer(10615): [4b5aba9 SurfaceView[com.example.delvery/com.example.delvery.MainActivity]@0#7(BLAST Consumer)7](id:297700000010,api:0,p:-1,c:10615) disconnect
+I/SV[79014825 MainActivity](10615): releaseSurfaces: viewRoot = VRI[MainActivity]@6877a8d
+V/SurfaceView(10615): Layout: x=0 y=0 w=1080 h=2340, frame=Rect(0, 0 - 1080, 2340)
+D/SurfaceView(10615): ١٦٥٣٤٣٤٠٢ windowPositionLost, frameNr = ٠
+D/HWUI    (10615): CacheManager::trimMemory(20)
+I/BLASTBufferQueue(10615): [VRI[MainActivity]@6877a8d#6](f:0,a:1,s:0) destructor()
+D/BufferQueueConsumer(10615): [VRI[MainActivity]@6877a8d#6(BLAST Consumer)6](id:29770000000f,api:0,p:-1,c:10615) disconnect
+I/VRI[MainActivity]@6877a8d(10615): Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)8 dur=14 res=0x2 s={false 0x0} ch=true seqId=0
+I/SV[79014825 MainActivity](10615): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{4b5aba9 V.E...... ........ 0,0-1080,2340} of VRI[MainActivity]@6877a8d
+D/SV[79014825 MainActivity](10615): updateSurface: surface is not valid
+I/SV[79014825 MainActivity](10615): releaseSurfaces: viewRoot = VRI[MainActivity]@6877a8d
+D/VRI[MainActivity]@6877a8d(10615): applyTransactionOnDraw applyImmediately
+D/SV[79014825 MainActivity](10615): updateSurface: surface is not valid
+I/SV[79014825 MainActivity](10615): releaseSurfaces: viewRoot = VRI[MainActivity]@6877a8d
+D/VRI[MainActivity]@6877a8d(10615): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@6877a8d(10615): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@6877a8d(10615): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@6877a8d(10615): mWNT: t=0xb400007e1274ae80 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924
+I/VRI[MainActivity]@6877a8d(10615): stopped(true) old = false
+D/VRI[MainActivity]@6877a8d(10615): WindowStopped on com.example.delvery/com.example.delvery.MainActivity set to true
+D/HWUI    (10615): CacheManager::trimMemory(20)
+D/SV[79014825 MainActivity](10615): updateSurface: surface is not valid
+I/SV[79014825 MainActivity](10615): releaseSurfaces: viewRoot = VRI[MainActivity]@6877a8d
+D/VRI[MainActivity]@6877a8d(10615): applyTransactionOnDraw applyImmediately
+D/SV[79014825 MainActivity](10615): updateSurface: surface is not valid
+I/SV[79014825 MainActivity](10615): releaseSurfaces: viewRoot = VRI[MainActivity]@6877a8d
+D/VRI[MainActivity]@6877a8d(10615): applyTransactionOnDraw applyImmediately
+D/BBA2    (10615): setIsFg isFg = false; delayValue 3999ms
+D/InputTransport(10615): Input channel destroyed: 'ClientS', fd=443
+I/flutter ( 7754): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+D/FlutterGeolocator( 7754): Creating service.
+D/FlutterGeolocator( 7754): Binding to location service.
+D/FlutterGeolocator( 7754): Flutter engine connected. Connected engine count 1
+I/flutter ( 7754): FCM authorization: AuthorizationStatus.authorized
+I/flutter ( 7754): Firebase Token: dVEIirDcTz-b9m8bZqLQ4t:APA91bHmwa0mLZ-jwZbdWUqr3o8Pk_GtkLpojXbunOSFWNW0jcsb9i5EKNinI_dBZaoayjTwtXjc6_WueTbOc5efnnPc_YmCCYgfZDCC19N1FaZBIAf3jNU
+I/flutter ( 7754): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+D/FlutterGeolocator( 7754): Flutter engine connected. Connected engine count 2
+I/flutter ( 7754): Sending data: {}
+I/flutter ( 7754): Raw body:
+I/flutter ( 7754): Response status: 200
+I/flutter ( 7754): Response body: {"status":"success","data":{"marketing_headline_ar":"اطلب لأحبائك في حلب من أي مكان في العالم","marketing_headline_en":"Order for your loved ones in Aleppo from anywhere in the world","marketing_subtitle_ar":"مطاعم موثوقة، عروض موسمية، وتتبع حي للطلب حتى لحظة التسليم.","marketing_subtitle_en":"Trusted restaurants, seasonal offers, and live tracking until delivery.","delivery_prompt_ar":"حدد عنوان التوصيل","delivery_prompt_en":"Choose delivery address","notification_banner":{"id":1,"title_ar":"خصم 20%","title_en":"20% OFF","subtitle_ar":"استفد من أفضل العروض المفعلة الآن.","subtitle_en":"Take advantage of the best live restaurant offers.","image_url":"","background_color":"#274e1b","text_color":"#ffffff","cta_label_ar":"الانتقال للعرض","cta_label_en":"View Offer","cta_target":"restaurant:1","placement":"launch_popup"},"stories":[{"id":1,"restaurant_id":2,"t
+I/flutter ( 7754): Aleppo Home response: {status: success, data: {marketing_headline_ar: اطلب لأحبائك في حلب من أي مكان في العالم, marketing_headline_en: Order for your loved ones in Aleppo from anywhere in the world, marketing_subtitle_ar: مطاعم موثوقة، عروض موسمية، وتتبع حي للطلب حتى لحظة التسليم., marketing_subtitle_en: Trusted restaurants, seasonal offers, and live tracking until delivery., delivery_prompt_ar: حدد عنوان التوصيل, delivery_prompt_en: Choose delivery address, notification_banner: {id: 1, title_ar: خصم 20%, title_en: 20% OFF, subtitle_ar: استفد من أفضل العروض المفعلة الآن., subtitle_en: Take advantage of the best live restaurant offers., image_url: , background_color: #274e1b, text_color: #ffffff, cta_label_ar: الانتقال للعرض, cta_label_en: View Offer, cta_target: restaurant:1, placement: launch_popup}, stories: [{id: 1, restaurant_id: 2, title_ar: test, title_en: test, im
+I/flutter ( 7754): Sending data: {restaurant_id: 1}
+I/flutter ( 7754): Raw body: restaurant_id=1
+I/flutter ( 7754): Response status: 200
+I/flutter ( 7754): Response body: {"status":"success","data":{"restaurant":{"id":1,"name":"Savir Store","slug":"default-store","tagline_ar":"","tagline_en":"","logo_url":"","cover_image_url":"","rating":5,"reviews_count":3,"delivery_fee":0,"estimated_min_minutes":25,"estimated_max_minutes":45,"is_open":true,"supports_scheduled_orders":true,"supports_pickup":true,"distance_km":null,"badges_ar":["توصيل مجاني"],"badges_en":["Free delivery"]},"order_modes":{"asap_enabled":true,"asap_label_ar":"أسرع وقت ممكن","asap_label_en":"As soon as possible","scheduled_slots":[{"label_ar":"اليوم 3:13 AM","label_en":"Today 3:13 AM","value":"2026-06-16T03:13:42"},{"label_ar":"اليوم 3:43 AM","label_en":"Today 3:43 AM","value":"2026-06-16T03:43:42"},{"label_ar":"اليوم 4:13 AM","label_en":"Today 4:13 AM","value":"2026-06-16T04:13:42"},{"label_ar":"اليوم 4:43 AM","label_en":"Today 4:43 AM","value":"2026-06-16T04:43:42"},{"label_ar":"اليوم 5:13 AM","label_en":"Today 5:13 AM","value":"2026-06-16T05:13:42"}
+I/flutter ( 7754): Sending data: {item_id: 128}
+I/flutter ( 7754): Raw body: item_id=128
+I/flutter ( 7754): Response status: 200
+I/flutter ( 7754): Response body: {"status":"success","data":{"item":{"id":"128","vendor_id":"1","name_ar":"تيشرت","name_en":"T-shirt","description_ar":"رايا","description_en":"raya","image_url":"https:\/\/aleppoeats.com\/zahra\/uploud\/items\/6.png","price":160,"compare_price":200,"is_available":true},"modifier_groups":[],"suggested_items":[{"id":"129","name_ar":"هودي","name_en":"hody","image_url":"https:\/\/aleppoeats.com\/zahra\/uploud\/items\/3.png","price":216}]}}
+I/flutter ( 7754): Sending data: {usersid: 117, itemsid: 128, config_hash: c08a215f96d7be40b05584240d71e7b0, cart_context_type: food, cart_vendor_id: 1, cart_unit_price: 160.00, cart_item_note: , cart_menu_options_json: [], cart_menu_options_summary: }
+I/flutter ( 7754): Raw body: usersid=117&itemsid=128&config_hash=c08a215f96d7be40b05584240d71e7b0&cart_context_type=food&cart_vendor_id=1&cart_unit_price=160.00&cart_item_note=&cart_menu_options_json=%5B%5D&cart_menu_options_summary=
+I/flutter ( 7754): Response status: 200
+I/flutter ( 7754): Response body: {"status":"success","action":"insert","cart_id":"675","item_color":null,"item_size":null}
+I/flutter ( 7754): Sending data: {usersid: 117}
+I/flutter ( 7754): Raw body: usersid=117
+I/flutter ( 7754): Response status: 200
+I/flutter ( 7754): Response body: {"status":"success","countprice":{"totalprice":"160.000000","totalcount":"1"},"datacart":[{"cart_id":675,"cart_usersid":117,"cart_itemsid":128,"cart_variantid":null,"countitems":1,"cart_lens_code":null,"cart_lens_name":null,"cart_lens_color":null,"cart_lens_features":null,"cart_lens_price":"0.00","cart_prescription_json":null,"cart_prescription_summary":null,"cart_config_hash":"c08a215f96d7be40b05584240d71e7b0","cart_context_type":"food","cart_vendor_id":1,"cart_unit_price":"160.00","cart_item_note":null,"cart_menu_options_json":"[]","cart_menu_options_summary":null,"items_id":128,"items_name_en":"T-shirt","items_name_ar":"\u062a\u064a\u0634\u0631\u062a","items_desc_en":"raya","items_desc_ar":"\u0631\u0627\u064a\u0627","items_image":"6.png","items_count":225,"items_active":1,"items_price":"200.00","items_discount":20,"items_date":"2026-03-24 21:40:12","items_cat":38,"item_color":null,"item_size":null,"items_image_effective":"6.png","total_items_price":"160.000000","line_total":"160.000000","li
+I/flutter ( 7754): =============================== Controller {status: success, countprice: {totalprice: 160.000000, totalcount: 1}, datacart: [{cart_id: 675, cart_usersid: 117, cart_itemsid: 128, cart_variantid: null, countitems: 1, cart_lens_code: null, cart_lens_name: null, cart_lens_color: null, cart_lens_features: null, cart_lens_price: 0.00, cart_prescription_json: null, cart_prescription_summary: null, cart_config_hash: c08a215f96d7be40b05584240d71e7b0, cart_context_type: food, cart_vendor_id: 1, cart_unit_price: 160.00, cart_item_note: null, cart_menu_options_json: [], cart_menu_options_summary: null, items_id: 128, items_name_en: T-shirt, items_name_ar: تيشرت, items_desc_en: raya, items_desc_ar: رايا, items_image: 6.png, items_count: 225, items_active: 1, items_price: 200.00, items_discount: 20, items_date: 2026-03-24 21:40:12, items_cat: 38, item_color: null, item_size: null, items_image_effective: 6.png, total_items_price: 160.000000, line_total: 160.000000, line_subtotal: 200.00, line_discount: 40.000000}]
+I/flutter ( 7754): Sending data: {user_id: 117}
+I/flutter ( 7754): Raw body: user_id=117
+I/flutter ( 7754): Sending data: {usersid: 117}
+I/flutter ( 7754): Raw body: usersid=117
+I/flutter ( 7754): Response status: 200
+I/flutter ( 7754): Response body: {"referral_code":"AE-117","referral_points":0,"wallet_balance":0,"total_referrals":0,"activated_referrals":0}
+I/flutter ( 7754): Response status: 200
+I/flutter ( 7754): Response body: {"status":"success","data":[{"address_id":68,"address_usersid":117,"address_city":"\u0628\u0646\u0632\u064a\u0646","address_street":"\u0627\u062a","address_phone":"01112308766","address_name":"30.08210, 31.20307","address_lat":null,"address_long":null},{"address_id":69,"address_usersid":117,"address_city":"cairo","address_street":"34ggg","address_phone":"3800005577","address_name":"30.06069, 31.18748","address_lat":30.060689379462303,"address_long":31.187481234227818}]}
+I/flutter ( 7754): Sending data: {usersid: 117, addressid: 68, orderstype: 0, pricedelivery: 0.00, ordersprice: 160.00, couponid: 0, coupondiscount: 0.0, paymentmethod: 0, recipient_name: , recipient_phone: , recipient_label: , recipient_address_name: , recipient_address_line: , recipient_location_note: , recipient_building: , recipient_floor: , recipient_lat: , recipient_lng: , gift_message: , delivery_note: }
+I/flutter ( 7754): Raw body: usersid=117&addressid=68&orderstype=0&pricedelivery=0.00&ordersprice=160.00&couponid=0&coupondiscount=0.0&paymentmethod=0&recipient_name=&recipient_phone=&recipient_label=&recipient_address_name=&recipient_address_line=&recipient_location_note=&recipient_building=&recipient_floor=&recipient_lat=&recipient_lng=&gift_message=&delivery_note=
+I/flutter ( 7754): Response status: 200
+I/flutter ( 7754): Response body: {"status":"success","order_id":"321","share_token":"3661ebc287e4f4377ca0a3d0","estimated_minutes":45,"delivery_code":"6012","total":"160.00"}
+I/flutter ( 7754): Sending data: {}
+I/flutter ( 7754): Raw body:
+I/flutter ( 7754): Response status: 200
+I/flutter ( 7754): Response body: {"status":"success","data":{"marketing_headline_ar":"اطلب لأحبائك في حلب من أي مكان في العالم","marketing_headline_en":"Order for your loved ones in Aleppo from anywhere in the world","marketing_subtitle_ar":"مطاعم موثوقة، عروض موسمية، وتتبع حي للطلب حتى لحظة التسليم.","marketing_subtitle_en":"Trusted restaurants, seasonal offers, and live tracking until delivery.","delivery_prompt_ar":"حدد عنوان التوصيل","delivery_prompt_en":"Choose delivery address","notification_banner":{"id":1,"title_ar":"خصم 20%","title_en":"20% OFF","subtitle_ar":"استفد من أفضل العروض المفعلة الآن.","subtitle_en":"Take advantage of the best live restaurant offers.","image_url":"","background_color":"#274e1b","text_color":"#ffffff","cta_label_ar":"الانتقال للعرض","cta_label_en":"View Offer","cta_target":"restaurant:1","placement":"launch_popup"},"stories":[{"id":1,"restaurant_id":2,"t
+I/flutter ( 7754): Aleppo Home response: {status: success, data: {marketing_headline_ar: اطلب لأحبائك في حلب من أي مكان في العالم, marketing_headline_en: Order for your loved ones in Aleppo from anywhere in the world, marketing_subtitle_ar: مطاعم موثوقة، عروض موسمية، وتتبع حي للطلب حتى لحظة التسليم., marketing_subtitle_en: Trusted restaurants, seasonal offers, and live tracking until delivery., delivery_prompt_ar: حدد عنوان التوصيل, delivery_prompt_en: Choose delivery address, notification_banner: {id: 1, title_ar: خصم 20%, title_en: 20% OFF, subtitle_ar: استفد من أفضل العروض المفعلة الآن., subtitle_en: Take advantage of the best live restaurant offers., image_url: , background_color: #274e1b, text_color: #ffffff, cta_label_ar: الانتقال للعرض, cta_label_en: View Offer, cta_target: restaurant:1, placement: launch_popup}, stories: [{id: 1, restaurant_id: 2, title_ar: test, title_en: test, im
+I/VRI[MainActivity]@6877a8d(10615): handleAppVisibility mAppVisible = false visible = true
+I/VRI[MainActivity]@6877a8d(10615): stopped(false) old = true
+D/VRI[MainActivity]@6877a8d(10615): WindowStopped on com.example.delvery/com.example.delvery.MainActivity set to false
+D/ViewRootImpl(10615): Skipping stats log for color mode
+D/BBA2    (10615): setIsFg isFg = true
+D/SV[79014825 MainActivity](10615): updateSurface: surface is not valid
+I/SV[79014825 MainActivity](10615): releaseSurfaces: viewRoot = VRI[MainActivity]@6877a8d
+D/VRI[MainActivity]@6877a8d(10615): applyTransactionOnDraw applyImmediately
+I/SV[79014825 MainActivity](10615): onWindowVisibilityChanged(0) false io.flutter.embedding.android.FlutterSurfaceView{4b5aba9 V.E...... ......ID 0,0-1080,2340} of VRI[MainActivity]@6877a8d
+D/SV[79014825 MainActivity](10615): updateSurface: surface is not valid
+I/SV[79014825 MainActivity](10615): releaseSurfaces: viewRoot = VRI[MainActivity]@6877a8d
+D/VRI[MainActivity]@6877a8d(10615): applyTransactionOnDraw applyImmediately
+D/BufferQueueConsumer(10615): [](id:297700000014,api:0,p:-1,c:10615) connect: controlledByApp=false
+I/BLASTBufferQueue(10615): [VRI[MainActivity]@6877a8d#8](f:0,a:0,s:0) constructor()
+I/BLASTBufferQueue_Java(10615): new BLASTBufferQueue, mName= VRI[MainActivity]@6877a8d mNativeObject= 0xb400007e4634e800 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3585 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 android.view.Choreographer.doCallbacks:1367 android.view.Choreographer.doFrame:1292 android.view.Choreographer$FrameDisplayEventReceiver.run:1870
+I/BLASTBufferQueue_Java(10615): update, w= 1080 h= 2340 mName = VRI[MainActivity]@6877a8d mNativeObject= 0xb400007e4634e800 sc.mNativeObject= 0xb400007e4a692500 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3590 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901
+I/BLASTBufferQueue(10615): [VRI[MainActivity]@6877a8d#8](f:0,a:0,s:0) update width=1080 height=2340 format=-3 mTransformHint=0
+I/VRI[MainActivity]@6877a8d(10615): Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)0 dur=12 res=0x3 s={true 0xb400007be82e3a00} ch=true seqId=0
+D/VRI[MainActivity]@6877a8d(10615): mThreadedRenderer.initialize() mSurface={isValid=true 0xb400007be82e3a00} hwInitialized=true
+I/SurfaceView(10615): 79014825 Changes: creating=false format=false size=false visible=false alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SV[79014825 MainActivity](10615): windowStopped(false) true io.flutter.embedding.android.FlutterSurfaceView{4b5aba9 V.E...... ......ID 0,0-1080,2340} of VRI[MainActivity]@6877a8d
+I/SurfaceView(10615): 79014825 Changes: creating=true format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+D/BufferQueueConsumer(10615): [](id:297700000015,api:0,p:-1,c:10615) connect: controlledByApp=false
+I/BLASTBufferQueue(10615): [4b5aba9 SurfaceView[com.example.delvery/com.example.delvery.MainActivity]@0#9](f:0,a:0,s:0) constructor()
+I/BLASTBufferQueue_Java(10615): new BLASTBufferQueue, mName= 4b5aba9 SurfaceView[com.example.delvery/com.example.delvery.MainActivity]@0 mNativeObject= 0xb400007e464ccc00 caller= android.view.SurfaceView.createBlastSurfaceControls:1781 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setWindowStopped:539 android.view.SurfaceView.surfaceCreated:2327 android.view.ViewRootImpl.notifySurfaceCreated:3502 android.view.ViewRootImpl.performTraversals:5286 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910
+I/BLASTBufferQueue_Java(10615): update, w= 1080 h= 2340 mName = 4b5aba9 SurfaceView[com.example.delvery/com.example.delvery.MainActivity]@0 mNativeObject= 0xb400007e464ccc00 sc.mNativeObject= 0xb400007e4a692d40 format= 4 caller= android.view.SurfaceView.createBlastSurfaceControls:1782 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setWindowStopped:539 android.view.SurfaceView.surfaceCreated:2327 android.view.ViewRootImpl.notifySurfaceCreated:3502 android.view.ViewRootImpl.performTraversals:5286
+I/BLASTBufferQueue(10615): [4b5aba9 SurfaceView[com.example.delvery/com.example.delvery.MainActivity]@0#9](f:0,a:0,s:0) update width=1080 height=2340 format=4 mTransformHint=0
+I/SurfaceView(10615): 79014825 Cur surface: Surface(name=null mNativeObject=0)/@0x91adfe4
+I/SV[79014825 MainActivity](10615): pST: sr = Rect(0, 0 - 1080, 2340) sw = 1080 sh = 2340
+D/SurfaceView(10615): 79014825 performSurfaceTransaction RenderWorker position = [0, 0, 1080, 2340] surfaceSize = 1080x2340
+I/SV[79014825 MainActivity](10615): updateSurface: mVisible = true mSurface.isValid() = true
+I/SV[79014825 MainActivity](10615): updateSurface: mSurfaceCreated = false surfaceChanged = true visibleChanged = true
+I/SurfaceView(10615): 79014825 visibleChanged -- surfaceCreated
+I/SV[79014825 MainActivity](10615): surfaceCreated 1 #1 io.flutter.embedding.android.FlutterSurfaceView{4b5aba9 V.E...... ......ID 0,0-1080,2340}
+I/SurfaceView(10615): 79014825 surfaceChanged -- format=4 w=1080 h=2340
+I/SV[79014825 MainActivity](10615): surfaceChanged (1080,2340) 1 #1 io.flutter.embedding.android.FlutterSurfaceView{4b5aba9 V.E...... ......ID 0,0-1080,2340}
+I/SurfaceView(10615): 79014825 surfaceRedrawNeeded
+V/SurfaceView(10615): Layout: x=0 y=0 w=1080 h=2340, frame=Rect(0, 0 - 1080, 2340)
+D/VRI[MainActivity]@6877a8d(10615): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910
+D/VRI[MainActivity]@6877a8d(10615): Setup new sync=wmsSync-VRI[MainActivity]@6877a8d#13
+I/VRI[MainActivity]@6877a8d(10615): Creating new active sync group VRI[MainActivity]@6877a8d#14
+D/VRI[MainActivity]@6877a8d(10615): Start draw after previous draw not visible
+D/VRI[MainActivity]@6877a8d(10615): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(10615): ٧٩٠١٤٨٢٥ updateSurfacePosition RenderWorker, frameNr = ١, position = [٠, ٠, ١٠٨٠, ٢٣٤٠] surfaceSize = ١٠٨٠x٢٣٤٠
+I/SV[79014825 MainActivity](10615): uSP: rtp = Rect(0, 0 - 1080, 2340) rtsw = 1080 rtsh = 2340
+I/SV[79014825 MainActivity](10615): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[79014825 MainActivity](10615): aOrMT: VRI[MainActivity]@6877a8d t = android.view.SurfaceControl$Transaction@3fbae50 fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401
+I/VRI[MainActivity]@6877a8d(10615): mWNT: t=0xb400007d824a3880 mBlastBufferQueue=0xb400007e4634e800 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932
+D/VRI[MainActivity]@6877a8d(10615): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[MainActivity]@6877a8d(10615): mWNT: t=0xb400007b84c5d000 mBlastBufferQueue=0xb400007e4634e800 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack>
+I/VRI[MainActivity]@6877a8d(10615): Setting up sync and frameCommitCallback
+I/BLASTBufferQueue(10615): [VRI[MainActivity]@6877a8d#8](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/BLASTBufferQueue(10615): [VRI[MainActivity]@6877a8d#8](f:0,a:1,s:0) acquireNextBufferLocked size=1080x2340 mFrameNumber=1 applyTransaction=true mTimestamp=33200664054670(auto) mPendingTransactions.size=0 graphicBufferId=45591077847162 transform=0
+I/VRI[MainActivity]@6877a8d(10615): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+I/InsetsSourceConsumer(10615): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.example.delvery/com.example.delvery.MainActivity
+I/InsetsSourceConsumer(10615): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.delvery/com.example.delvery.MainActivity
+I/BLASTBufferQueue(10615): [4b5aba9 SurfaceView[com.example.delvery/com.example.delvery.MainActivity]@0#9](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/BLASTBufferQueue(10615): [4b5aba9 SurfaceView[com.example.delvery/com.example.delvery.MainActivity]@0#9](f:0,a:1,s:0) acquireNextBufferLocked size=1080x2340 mFrameNumber=1 applyTransaction=true mTimestamp=33200747373670(auto) mPendingTransactions.size=0 graphicBufferId=45591077847157 transform=0
+D/VRI[MainActivity]@6877a8d(10615): reportDrawFinished seqId=0
+I/SurfaceView(10615): 79014825 finishedDrawing
+D/VRI[MainActivity]@6877a8d(10615): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007be82e3a00}
+D/InputMethodManagerUtils(10615): startInputInner - Id : 0
+I/InputMethodManager(10615): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(10615): handleMessage: setImeVisibility visible=false
+D/InsetsController(10615): hide(ime(), fromIme=false)
+I/ImeTracker(10615): com.example.delvery:1361cbf7: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(10615): Input channel constructed: 'ClientS', fd=240
+[GETX] GOING TO ROUTE /incoming-order
+[GETX] Instance "IncomingOrderController" has been created
+[GETX] Instance "IncomingOrderController" has been initialized
+I/VRI[MainActivity]@6877a8d(10615): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@6877a8d
+[GETX] GOING TO ROUTE /home
+[GETX] REMOVING ROUTE /incoming-order
+[GETX] REMOVING ROUTE /home
+W/WindowOnBackDispatcher(10615): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@bbc216b
+[GETX] "HomeController" onDelete() called
+[GETX] "HomeController" deleted from memory
+[GETX] "IncomingOrderController" onDelete() called
+[GETX] "IncomingOrderController" deleted from memory
+[GETX] GOING TO ROUTE /current-order
+[GETX] Instance "OrderController" has been created
+[GETX] Instance "OrderController" has been initialized
+I/Mbgl-FontUtils(10615): Couldn't map font family for local ideograph, using sans-serif instead
+E/ThemeUtils(10615): View class com.mapbox.maps.plugin.compass.CompassViewImpl is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).
+E/ThemeUtils(10615): View class com.mapbox.maps.plugin.logo.LogoViewImpl is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).
+E/ThemeUtils(10615): View class com.mapbox.maps.plugin.attribution.AttributionViewImpl is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).
+I/PlatformViewsController(10615): Hosting view in view hierarchy for platform view: 0
+I/PlatformViewsController(10615): PlatformView is using SurfaceProducer backend
+D/BufferQueueConsumer(10615): [](id:297700000016,api:0,p:-1,c:10615) connect: controlledByApp=true
+D/NativeCustomFrequencyManager(10615): [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+D/HWUI    (10615): CFMS:: SetUp Pid : 10615    Tid : 10691
+I/Mbgl-FontUtils(10615): Couldn't map font family for local ideograph, using sans-serif instead
+E/ThemeUtils(10615): View class com.mapbox.maps.plugin.compass.CompassViewImpl is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).
+E/ThemeUtils(10615): View class com.mapbox.maps.plugin.logo.LogoViewImpl is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).
+E/ThemeUtils(10615): View class com.mapbox.maps.plugin.attribution.AttributionViewImpl is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).
+I/PlatformViewsController(10615): Hosting view in view hierarchy for platform view: 1
+I/PlatformViewsController(10615): PlatformView is using SurfaceProducer backend
+D/BufferQueueConsumer(10615): [](id:297700000017,api:0,p:-1,c:10615) connect: controlledByApp=true
+D/NativeCustomFrequencyManager(10615): [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+D/HWUI    (10615): CFMS:: SetUp Pid : 10615    Tid : 10691
+I/Choreographer(10615): Skipped 31 frames!  The application may be doing too much work on its main thread.
+D/BufferQueueConsumer(10615): [](id:297700000018,api:0,p:-1,c:10615) connect: controlledByApp=true
+D/NativeCustomFrequencyManager(10615): [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+D/BufferQueueConsumer(10615): [](id:297700000019,api:0,p:-1,c:10615) connect: controlledByApp=true
+D/libMEOW (10615): meow new tls: 0xb400007b853dccc0
+D/libMEOW (10615): applied 0 plugin for [com.example.delvery].
+D/BufferQueueConsumer(10615): [](id:29770000001a,api:0,p:-1,c:10615) connect: controlledByApp=true
+D/HWUI    (10615): CFMS:: SetUp Pid : 10615    Tid : 10691
+D/NativeCustomFrequencyManager(10615): [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+D/BufferQueueConsumer(10615): [](id:29770000001b,api:0,p:-1,c:10615) connect: controlledByApp=true
+D/libMEOW (10615): meow new tls: 0xb400007be9f78340
+D/libMEOW (10615): applied 0 plugin for [com.example.delvery].
+D/HWUI    (10615): CFMS:: SetUp Pid : 10615    Tid : 10691
+D/libMEOW (10615): meow new tls: 0xb400007bec17f500
+D/libMEOW (10615): applied 0 plugin for [com.example.delvery].
+D/libMEOW (10615): meow new tls: 0xb400007b7b6ea200
+D/libMEOW (10615): applied 0 plugin for [com.example.delvery].
+I/example.delvery(10615): NativeAlloc concurrent mark compact GC freed 5158KB AllocSpace bytes, 2(40KB) LOS objects, 49% free, 6454KB/12MB, paused 391us,5.364ms total 97.329ms
+D/libMEOW (10615): meow new tls: 0xb400007bbb9b5a40
+D/libMEOW (10615): applied 0 plugin for [com.example.delvery].
+D/libMEOW (10615): meow new tls: 0xb400007b7bbc39c0
+D/libMEOW (10615): applied 0 plugin for [com.example.delvery].
+D/BufferQueueConsumer(10615): [ImageReader-1x1f22m7-10615-8](id:297700000016,api:0,p:-1,c:10615) disconnect
+[GETX] Worker [ever] disposed
+[GETX] Worker [ever] disposed
+D/libMEOW (10615): meow delete tls: 0xb400007b7b6ea200
+D/libMEOW (10615): meow delete tls: 0xb400007b7bbc39c0
+D/BufferQueueConsumer(10615): [SurfaceTexture-0-10615-5](id:29770000001b,api:0,p:-1,c:10615) disconnect
+D/libMEOW (10615): meow delete tls: 0xb400007be9f78340
+D/BufferQueueConsumer(10615): [ImageReader-1x1f22m7-10615-9](id:297700000017,api:0,p:-1,c:10615) disconnect
+D/BufferQueueConsumer(10615): [ImageReader-968x675f22m7-10615-11](id:29770000001a,api:0,p:-1,c:10615) disconnect
+D/libMEOW (10615): meow delete tls: 0xb400007bec17f500
+D/libMEOW (10615): meow delete tls: 0xb400007bbb9b5a40
+D/BufferQueueConsumer(10615): [SurfaceTexture-0-10615-4](id:297700000019,api:0,p:-1,c:10615) disconnect
+D/libMEOW (10615): meow delete tls: 0xb400007b853dccc0
+D/BufferQueueConsumer(10615): [ImageReader-968x675f22m7-10615-10](id:297700000018,api:0,p:-1,c:10615) disconnect
+I/VRI[MainActivity]@6877a8d(10615): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@6877a8d

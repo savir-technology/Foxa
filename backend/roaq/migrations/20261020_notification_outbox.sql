@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS notification_outbox (
+    event_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    recipient_type VARCHAR(16) NOT NULL,
+    recipient_id INT NOT NULL DEFAULT 0,
+    topic VARCHAR(128) DEFAULT NULL,
+    notification_type VARCHAR(64) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    body TEXT NOT NULL,
+    ref_type VARCHAR(64) DEFAULT NULL,
+    ref_id INT DEFAULT NULL,
+    payload LONGTEXT DEFAULT NULL,
+    status ENUM('pending','processing','sent','failed') NOT NULL DEFAULT 'pending',
+    attempts INT UNSIGNED NOT NULL DEFAULT 0,
+    available_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    locked_at DATETIME DEFAULT NULL,
+    last_error TEXT DEFAULT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (event_id),
+    UNIQUE KEY uq_notification_outbox_event (recipient_type, recipient_id, notification_type, ref_type, ref_id),
+    KEY idx_notification_outbox_poll (status, available_at, event_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

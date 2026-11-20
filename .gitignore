@@ -1,0 +1,77 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+*.iml
+.vscode/*.code-workspace
+
+# Secrets and machine-specific configuration
+.env
+.env.*
+!.env.example
+**/secret.env.php
+**/database.local.php
+**/local.properties
+**/google-services.json
+**/service-account*.json
+**/*firebase-adminsdk*.json
+**/*.jks
+**/*.keystore
+**/*.p12
+**/*.pem
+**/*.key
+
+# Flutter / Dart generated files
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.pub-cache/
+**/.pub/
+**/build/
+**/coverage/
+**/doc/api/
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/.last_build_id
+**/android/.gradle/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+**/android/captures/
+
+# Native build output
+**/xcuserdata/
+**/Pods/
+**/DerivedData/
+**/CMakeFiles/
+**/*.symbols
+**/*.map.json
+
+# Logs, crash dumps and temporary exports
+*.log
+**/hs_err_pid*.log
+**/replay_pid*.log
+**/*_debug.log
+**/debug*_log.txt
+**/debug_fcm_log.txt
+**/flutter_*.log
+*.tmp
+*.bak
+
+# Local deployment snapshots and packaged assets
+/deploy/
+/deploy-final/
+/deploy-validation/
+**/AppIcons.zip
+**/*.apk
+**/*.aab
+
+# Database dumps may contain production data
+/database/*.sql
+
+# PHP dependencies (keep composer.json and composer.lock)
+**/vendor/
+
+# Preserved history from the former nested backend repository
+/backend/roaq/.git-local-backup/

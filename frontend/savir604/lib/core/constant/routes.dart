@@ -1,0 +1,57 @@
+// ignore_for_file: constant_identifier_names
+
+class AppRoutes {
+  static const String splash = "/";
+  static const String OnBording = "/Onbording";
+  static const String login = "/login";
+  static const String signup = "/signup";
+  static const String verifyEmail = "/verify-email";
+  static const String forgotPassword = "/forgot-password";
+  static const String googlePhoneVerification = "/google-phone-verification";
+  static const String userProfileSetup = "/user-profile-setup";
+  static const String homepage = "/hompage";
+  static const String restaurantDetails = "/restaurantdetails";
+  static const String foodItemDetails = "/fooditemdetails";
+  static const String items = "/items";
+  static const String productdetails = "/productdetails";
+  static const String myfavroite = "/myfavroite";
+  static const String cart = "/cart";
+  static const String checkout = "/checkout";
+  static const String recipients = "/recipients";
+  static const String orderSuccess = "/order-success";
+  static const String orderRejected = "/order-rejected";
+  static const String orderTracking = "/order-tracking";
+  static const String orderChat = "/order-chat";
+  static const String wallet = "/wallet";
+  static const String pickupQr = "/pickup-qr";
+  static const String offers = "/offers";
+  static const String helpCenter = "/help-center";
+  static const String termsOfUse = "/terms-of-use";
+  static const String privacyPolicy = "/privacy-policy";
+  static const String consentManagementPolicy = "/consent-management-policy";
+  static const String paymentsAndWalletPolicy = "/payments-and-wallet-policy";
+  static const String ordersForOthersPolicy = "/orders-for-others-policy";
+  static const String reviewsPolicy = "/reviews-policy";
+  static const String cancellationRefundPolicy = "/cancellation-refund-policy";
+  static const String prohibitedUsePolicy = "/prohibited-use-policy";
+  static const String communicationsPolicy = "/communications-policy";
+  static const String orderspending = "/orderspending";
+  static const String ordersarchive = "/ordersarchive";
+  static const String ordersdetails = "/ordersdetails";
+  static const String addressview = "/addressview";
+  static const String addressadddetails = "/addressadddetails";
+  static const String selectAddressMap = "/select-address-map";
+  static const String aboutus = "/aboutus";
+  static const String set = "/Settings";
+  static const String ratingPage = "/RatingPage";
+  static const String profilepage = "/profile";
+  static const String paymobcheckout = "/paymobcheckout";
+  static const String ordersarchive_page = "/ordersarchivepage";
+  static const String language = "/language";
+  static const String ComplaintScreen = "/ComplaintScreen";
+  static const String notificationPage = "/NotificationPage";
+  static const String SupportHome = "/SupportHome";
+  static const String video = "/VideoFeedPage";
+  static const String comments = "/CommentsPage";
+  static const String driverNavigation = "/DriverNavigation";
+}

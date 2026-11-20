@@ -1,0 +1,9 @@
+{
+    "name": "islam/zahra",
+    "description": "A simple e-commerce store using PHP and MySQL",
+    "type": "no",
+    "minimum-stability": "stable",
+    "require": {
+        "phpmailer/phpmailer": "^6.10"
+    }
+}

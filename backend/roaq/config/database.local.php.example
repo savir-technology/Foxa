@@ -1,0 +1,13 @@
+
+<?php
+
+// Copy this file to database.local.php on the server only, then replace the
+// placeholders with the database created by the hosting provider.
+// Never commit database.local.php or expose it in a public repository.
+return [
+    'ROAQ_DB_HOST' => 'localhost',
+    'ROAQ_DB_PORT' => '3306',
+    'ROAQ_DB_NAME' => 'u932399374_roaqv2',
+    'ROAQ_DB_USER' => 'replace_with_hosting_database_user',
+    'ROAQ_DB_PASSWORD' => 'replace_with_hosting_database_password',
+];

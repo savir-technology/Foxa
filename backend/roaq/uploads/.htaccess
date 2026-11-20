@@ -1,0 +1,5 @@
+<IfModule mod_mime.c>
+    AddType audio/mp4 .m4a .mp4
+    AddType audio/mpeg .mp3
+    AddType audio/aac .aac
+</IfModule>

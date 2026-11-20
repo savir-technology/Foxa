@@ -1,0 +1,57 @@
+ CLOSE BOTTOMSHEET 795182799
+[GETX] GOING TO ROUTE /OrderVoiceCallScreen
+I/org.webrtc.Logging( 4908): NativeLibrary: Loading native library: jingle_peerconnection_so
+I/org.webrtc.Logging( 4908): NativeLibrary: Loading library: jingle_peerconnection_so
+D/nativeloader( 4908): Load /data/app/~~McLChVpdv2m8KVSsPncJIw==/com.alepoo.eats-kl9d7iBWw1mr2RzIuqy4RA==/base.apk!/lib/arm64-v8a/libjingle_peerconnection_so.so using class loader ns clns-9 (caller=/data/app/~~McLChVpdv2m8KVSsPncJIw==/com.alepoo.eats-kl9d7iBWw1mr2RzIuqy4RA==/base.apk!classes22.dex): ok
+D/libMEOW ( 4908): applied 0 plugin for [com.alepoo.eats].
+D/libMEOW ( 4908): meow new tls: 0xb40000700278dd80
+D/libMEOW ( 4908): applied 0 plugin for [com.alepoo.eats].
+W/FlutterWebRTCPlugin( 4908): audioFocusChangeListener [Earpiece(name=Earpiece)] Earpiece(name=Earpiece)
+W/FlutterWebRTCPlugin( 4908): audioFocusChangeListener [Speakerphone(name=Speakerphone), Earpiece(name=Earpiece)] Speakerphone(name=Speakerphone)
+D/MediaConstraintsUtils( 4908): mandatory constraints are not a map
+D/MediaConstraintsUtils( 4908): optional constraints are not an array
+I/FlutterWebRTCPlugin( 4908): getUserMedia(audio): mandatory: [], optional: []
+D/FlutterWebRTCPlugin( 4908): MediaStream id: 44185449-54bb-42a7-8490-4ef8bd654b6b
+I/AudioManager( 4908): dispatching onAudioFocusChange(-1) to android.media.AudioManager@6cab0c2androidx.media3.common.audio.AudioFocusManager$$ExternalSyntheticLambda0@caaf1a7
+D/FlutterWebRTCPlugin( 4908): onAddTrack
+6
+D/FlutterWebRTCPlugin( 4908): setVolume(): dce09350-26e0-409d-9b11-b73de86e930d,1.0
+D/AidlBufferPool( 4908): bufferpool2 0xb4000070807635e8 : 9(18846720 size) total buffers - 8(16752640 size) used buffers - 2024/2033 (recycle/alloc) - 9/1993 (fetch/transfer)
+D/AidlBufferPool( 4908): bufferpool2 0xb400007041ece2e8 : 5(40960 size) total buffers - 1(8192 size) used buffers - 1469/1475 (recycle/alloc) - 28/1434 (fetch/transfer)
+I/MediaCodec( 4908): setCodecState state(0), called in 6, domain 1, 1
+D/ConnectivityManager( 4908): StackLog: [android.net.ConnectivityManager.sendRequestForNetwork(ConnectivityManager.java:4744)] [android.net.ConnectivityManager.sendRequestForNetwork(ConnectivityManager.java:4912)] [android.net.ConnectivityManager.requestNetwork(ConnectivityManager.java:5050)] [android.net.ConnectivityManager.requestNetwork(ConnectivityManager.java:5028)] [org.webrtc.NetworkMonitorAutoDetect$ConnectivityManagerDelegate.requestMobileNetwork(NetworkMonitorAutoDetect.java:477)] [org.webrtc.NetworkMonitorAutoDetect.<init>(NetworkMonitorAutoDetect.java:674)] [org.webrtc.NetworkMonitor$1.create(NetworkMonitor.java:52)] [org.webrtc.NetworkMonitor.createNetworkChangeDetector(NetworkMonitor.java:195)] [org.webrtc.NetworkMonitor.startMonitoring(NetworkMonitor.java:110)] [org.webrtc.NetworkMonitor.startMonitoring(NetworkMonitor.java:140)]
+D/AudioRecord( 4908): getTimestamp: retrograde position adjusting [2] current:-6240 to previous:-4800
+D/ConnectivityManager( 4908): StackLog: [android.net.ConnectivityManager.sendRequestForNetwork(ConnectivityManager.java:4744)] [android.net.ConnectivityManager.sendRequestForNetwork(ConnectivityManager.java:4912)] [android.net.ConnectivityManager.registerNetworkCallback(ConnectivityManager.java:5329)] [android.net.ConnectivityManager.registerNetworkCallback(ConnectivityManager.java:5299)] [org.webrtc.NetworkMonitorAutoDetect$ConnectivityManagerDelegate.registerNetworkCallback(NetworkMonitorAutoDetect.java:468)] [org.webrtc.NetworkMonitorAutoDetect.<init>(NetworkMonitorAutoDetect.java:681)] [org.webrtc.NetworkMonitor$1.create(NetworkMonitor.java:52)] [org.webrtc.NetworkMonitor.createNetworkChangeDetector(NetworkMonitor.java:195)] [org.webrtc.NetworkMonitor.startMonitoring(NetworkMonitor.java:110)] [org.webrtc.NetworkMonitor.startMonitoring(NetworkMonitor.java:140)]
+D/FlutterWebRTCPlugin( 4908): onIceGatheringChangeGATHERING
+8
+D/FlutterWebRTCPlugin( 4908): onIceCandidate
+I/VRI[MainActivity]@c21d788( 4908): handleResized, frames=ClientWindowFrames{frame=[0,0][1080,2340] display=[0,0][1080,2340] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/flutter ( 4908): Voice call ICE state: RTCIceConnectionState.RTCIceConnectionStateChecking
+D/FlutterWebRTCPlugin( 4908): onConnectionChangeCONNECTING
+I/flutter ( 4908): Voice call connection state: RTCPeerConnectionState.RTCPeerConnectionStateConnecting
+I/VRI[MainActivity]@c21d788( 4908): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@c21d788
+I/InsetsSourceConsumer( 4908): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.alepoo.eats/com.alepoo.eats.MainActivity
+D/AidlBufferPoolAcc( 4908): evictor expired: 1, evicted: 1
+D/AidlBufferPool( 4908): bufferpool2 0xb400007041ece2e8 : 5(40960 size) total buffers - 0(0 size) used buffers - 1473/1479 (recycle/alloc) - 31/1439 (fetch/transfer)
+D/AidlBufferPoolAcc( 4908): evictor expired: 1, evicted: 1
+D/FlutterWebRTCPlugin( 4908): onConnectionChangeFAILED
+I/flutter ( 4908): Voice call ICE state: RTCIceConnectionState.RTCIceConnectionStateFailed
+I/flutter ( 4908): Voice call connection state: RTCPeerConnectionState.RTCPeerConnectionStateFailed
+I/VRI[MainActivity]@c21d788( 4908): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@c21d788
+I/VRI[MainActivity]@c21d788( 4908): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@c21d788
+D/AudioTrack( 4908): setVolume(1.000000, 1.000000) pid : 4908
+[GETX] OPEN BOTTOMSHEET 739416657
+I/AudioManager( 4908): dispatching onAudioFocusChange(-3) to android.media.AudioManager@6cab0c2com.cloudwebrtc.webrtc.audio.AudioSwitchManager$$ExternalSyntheticLambda3@c544058
+D/FlutterWebRTCPlugin( 4908): onConnectionChangeCONNECTING
+I/flutter ( 4908): Voice call connection state: RTCPeerConnectionState.RTCPeerConnectionStateConnecting
+I/VRI[MainActivity]@c21d788( 4908): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@c21d788
+[GETX] CLOSE BOTTOMSHEET 739416657
+I/AudioManager( 4908): dispatching onAudioFocusChange(1) to android.media.AudioManager@6cab0c2com.cloudwebrtc.webrtc.audio.AudioSwitchManager$$ExternalSyntheticLambda3@c544058
+D/FlutterWebRTCPlugin( 4908): onConnectionChangeCLOSED
+D/AudioTrack( 4908): stop(888): called with 1537440 frames delivered
+D/ConnectivityManager( 4908): StackLog: [android.net.ConnectivityManager.unregisterNetworkCallback(ConnectivityManager.java:5579)] [org.webrtc.NetworkMonitorAutoDetect$ConnectivityManagerDelegate.releaseCallback(NetworkMonitorAutoDetect.java:495)] [org.webrtc.NetworkMonitorAutoDetect.destroy(NetworkMonitorAutoDetect.java:739)] [org.webrtc.NetworkMonitor.stopMonitoring(NetworkMonitor.java:161)] [org.webrtc.NetworkMonitor.stopMonitoring(NetworkMonitor.java:170)]
+I/flutter ( 4908): Voice call ICE state: RTCIceConnectionState.RTCIceConnectionStateClosed
+I/flutter ( 4908): Voice call connection state: RTCPeerConnectionState.RTCPeerConnectionStateClosed
+[GETX] CLOSE TO ROUTE /OrderVoiceCallScreen
+D/libMEOW ( 4908): meow delete tls: 0xb40000700278dd80
+I/VRI[MainActivity]@c21d788( 4908): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@c21d788
