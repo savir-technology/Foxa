@@ -11,6 +11,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:tks/controler/delivery_controller.dart';
 import 'package:tks/core/constants/currency.dart';
+import 'package:tks/core/services/location_service.dart';
 import 'package:tks/core/services/mapbox_runtime_config.dart';
 import 'package:tks/linkapi/linkapi.dart';
 
@@ -55,6 +56,7 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
   bool isResolvingAddress = false;
   bool isSearching = false;
   double _osmZoom = _initialZoom;
+  LatLng? _deviceLocation;
 
   bool get _isMapboxReady => MapboxRuntimeConfig.isConfigured;
 
@@ -100,9 +102,12 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
 
   String get _mode => _args['mode']?.toString() ?? 'address';
 
-  String get _screenTitle => (_args['title']?.toString() ??
-          (_mode == 'recipient' ? 'Recipient location' : 'Delivery location'))
-      .tr;
+  String get _screenTitle =>
+      (_args['title']?.toString() ??
+              (_mode == 'recipient'
+                  ? 'Recipient location'
+                  : 'Delivery location'))
+          .tr;
 
   String get _searchHint => _isArabic
       ? '\u0627\u0628\u062d\u062b \u0628\u0627\u0644\u0634\u0627\u0631\u0639 \u0623\u0648 \u0627\u0644\u0645\u0643\u0627\u0646'
@@ -154,11 +159,13 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
 
   LatLng get _referencePoint {
     final fallbackPoint = _defaultMapCenter;
-    final latitude = _referenceLatitudeArg ??
+    final latitude =
+        _referenceLatitudeArg ??
         _parseArgumentDouble('initial_latitude') ??
         _parseArgumentDouble('latitude') ??
         fallbackPoint.latitude;
-    final longitude = _referenceLongitudeArg ??
+    final longitude =
+        _referenceLongitudeArg ??
         _parseArgumentDouble('initial_longitude') ??
         _parseArgumentDouble('longitude') ??
         fallbackPoint.longitude;
@@ -168,6 +175,8 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     }
     return point;
   }
+
+  LatLng get _mapCenter => _deviceLocation ?? _referencePoint;
 
   bool _isWithinEgypt(LatLng point) {
     return point.latitude >= 21.5 &&
@@ -181,6 +190,37 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     super.initState();
     _selectedMarkerIconFuture = _buildSelectedMarkerIcon();
     _searchController.addListener(_onSearchTextChanged);
+    _loadDeviceLocation();
+  }
+
+  Future<void> _loadDeviceLocation() async {
+    // An explicitly supplied point belongs to the address being edited and
+    // should take precedence over the device's current location.
+    if (_hasExplicitReferencePoint) {
+      return;
+    }
+
+    try {
+      final location = await const LocationService().getCurrentLocation();
+      if (!mounted || location == null) {
+        return;
+      }
+
+      final point = LatLng(location.latitude, location.longitude);
+      setState(() {
+        _deviceLocation = point;
+      });
+
+      // Move the already-created map as well. This covers the time spent
+      // waiting for the permission dialog/GPS fix after the screen appears.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          _moveCameraTo(point, zoom: _initialZoom);
+        }
+      });
+    } catch (_) {
+      // If location is unavailable, keep the existing country fallback.
+    }
   }
 
   @override
@@ -202,8 +242,9 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final mapStyleUri =
-        MapboxRuntimeConfig.styleUriForBrightness(theme.brightness);
+    final mapStyleUri = MapboxRuntimeConfig.styleUriForBrightness(
+      theme.brightness,
+    );
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
@@ -228,8 +269,8 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
                     cameraOptions: CameraOptions(
                       center: Point(
                         coordinates: Position(
-                          _referencePoint.longitude,
-                          _referencePoint.latitude,
+                          _mapCenter.longitude,
+                          _mapCenter.latitude,
                         ),
                       ),
                       zoom: _initialZoom,
@@ -240,7 +281,7 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
                   )
                 : _OsmMapFallback(
                     controller: _osmMapController,
-                    initialCenter: _referencePoint,
+                    initialCenter: _mapCenter,
                     initialZoom: _osmZoom,
                     selectedPoint: selectedPoint,
                     onTap: (latlng) => _selectMapLocation(
@@ -321,6 +362,9 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
 
   Future<void> _onMapCreated(MapboxMap mapboxMap) async {
     _mapboxMap = mapboxMap;
+    if (_deviceLocation != null) {
+      await _moveCameraTo(_deviceLocation!, zoom: _initialZoom);
+    }
   }
 
   Future<void> _onStyleLoaded(StyleLoadedEventData _) async {
@@ -342,10 +386,10 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     _selectedMarkerAnnotation = null;
     _startMarkerDrawn = false;
 
-    _startMarkerManager =
-        await mapboxMap.annotations.createCircleAnnotationManager();
-    _selectedMarkerManager =
-        await mapboxMap.annotations.createPointAnnotationManager();
+    _startMarkerManager = await mapboxMap.annotations
+        .createCircleAnnotationManager();
+    _selectedMarkerManager = await mapboxMap.annotations
+        .createPointAnnotationManager();
     _selectedMarkerDragSubscription = _selectedMarkerManager?.dragEvents(
       onEnd: _handleSelectedMarkerDragEnd,
     );
@@ -459,13 +503,7 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
       ),
     )..layout();
 
-    iconPainter.paint(
-      canvas,
-      Offset(
-        (canvasSize - iconPainter.width) / 2,
-        2,
-      ),
-    );
+    iconPainter.paint(canvas, Offset((canvasSize - iconPainter.width) / 2, 2));
 
     final picture = recorder.endRecording();
     final image = await picture.toImage(canvasSize.toInt(), canvasSize.toInt());
@@ -476,17 +514,15 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
   Future<void> _onMapTapped(MapContentGestureContext context) async {
     final position = context.point.coordinates;
     final latlng = LatLng(position.lat.toDouble(), position.lng.toDouble());
-    await _selectMapLocation(
-      latlng,
-      animateCamera: true,
-      resolveAddress: true,
-    );
+    await _selectMapLocation(latlng, animateCamera: true, resolveAddress: true);
   }
 
   Future<void> _handleSelectedMarkerDragEnd(PointAnnotation annotation) async {
     final coordinates = annotation.geometry.coordinates;
-    final latlng =
-        LatLng(coordinates.lat.toDouble(), coordinates.lng.toDouble());
+    final latlng = LatLng(
+      coordinates.lat.toDouble(),
+      coordinates.lng.toDouble(),
+    );
     await _selectMapLocation(
       latlng,
       animateCamera: false,
@@ -522,10 +558,7 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     );
   }
 
-  Future<void> _moveCameraTo(
-    LatLng latlng, {
-    double zoom = 15.5,
-  }) async {
+  Future<void> _moveCameraTo(LatLng latlng, {double zoom = 15.5}) async {
     final mapboxMap = _mapboxMap;
     if (mapboxMap == null) {
       if (!_isMapboxReady) {
@@ -541,16 +574,9 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
 
     await mapboxMap.easeTo(
       CameraOptions(
-        center: Point(
-          coordinates: Position(latlng.longitude, latlng.latitude),
-        ),
+        center: Point(coordinates: Position(latlng.longitude, latlng.latitude)),
         zoom: zoom,
-        padding: MbxEdgeInsets(
-          top: 120,
-          left: 24,
-          bottom: 260,
-          right: 24,
-        ),
+        padding: MbxEdgeInsets(top: 120, left: 24, bottom: 260, right: 24),
       ),
       MapAnimationOptions(duration: 700),
     );
@@ -615,8 +641,11 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     required bool resolveAddress,
     _ResolvedMapLocation? resolvedLocation,
   }) async {
-    final distance =
-        _distance.as(LengthUnit.Kilometer, _referencePoint, latlng);
+    final distance = _distance.as(
+      LengthUnit.Kilometer,
+      _referencePoint,
+      latlng,
+    );
 
     final fallbackPrice = _calculateDeliveryPrice(distance);
     setState(() {
@@ -834,19 +863,15 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
   }
 
   Future<_ResolvedMapLocation?> _reverseGeocodeOsm(LatLng latlng) async {
-    final uri = Uri.https(
-      _nominatimHost,
-      '/reverse',
-      <String, String>{
-        'format': 'jsonv2',
-        'lat': latlng.latitude.toString(),
-        'lon': latlng.longitude.toString(),
-        'zoom': '18',
-        'addressdetails': '1',
-        'namedetails': '1',
-        'accept-language': _osmLanguage,
-      },
-    );
+    final uri = Uri.https(_nominatimHost, '/reverse', <String, String>{
+      'format': 'jsonv2',
+      'lat': latlng.latitude.toString(),
+      'lon': latlng.longitude.toString(),
+      'zoom': '18',
+      'addressdetails': '1',
+      'namedetails': '1',
+      'accept-language': _osmLanguage,
+    });
 
     try {
       final response = await _client.get(uri, headers: _osmHeaders);
@@ -884,8 +909,9 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
         .map((part) => part.trim())
         .where((part) => part.isNotEmpty)
         .toList();
-    final fallbackName =
-        displayParts.isNotEmpty ? displayParts.first : coordinatesLabel;
+    final fallbackName = displayParts.isNotEmpty
+        ? displayParts.first
+        : coordinatesLabel;
 
     final street = _firstNonEmpty([
       _osmString(address, 'road'),
@@ -952,9 +978,9 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
   }
 
   Map<String, String> get _osmHeaders => const {
-        'User-Agent': _nominatimUserAgent,
-        'Accept': 'application/json',
-      };
+    'User-Agent': _nominatimUserAgent,
+    'Accept': 'application/json',
+  };
 
   String get _osmLanguage => _isArabic ? 'ar,en' : 'en,ar';
 
@@ -1000,23 +1026,22 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     required List<_MapSearchResult> results,
     required bool useEgyptBbox,
   }) async {
-    final uri = Uri.https(
-      'api.mapbox.com',
-      '/search/geocode/v6/forward',
-      <String, String>{
-        'q': query,
-        'limit': '10',
-        'autocomplete': 'true',
-        'types':
-            'address,street,place,locality,neighborhood,district,region,postcode',
-        'country': _countryCode,
-        'language': _searchLanguageForQuery(query),
-        'worldview': _searchWorldviewForQuery(query),
-        'proximity': '${biasPoint.longitude},${biasPoint.latitude}',
-        if (useEgyptBbox && _countryCode == 'EG') 'bbox': _egyptSearchBbox,
-        'access_token': token,
-      },
-    );
+    final uri = Uri.https('api.mapbox.com', '/search/geocode/v6/forward', <
+      String,
+      String
+    >{
+      'q': query,
+      'limit': '10',
+      'autocomplete': 'true',
+      'types':
+          'address,street,place,locality,neighborhood,district,region,postcode',
+      'country': _countryCode,
+      'language': _searchLanguageForQuery(query),
+      'worldview': _searchWorldviewForQuery(query),
+      'proximity': '${biasPoint.longitude},${biasPoint.latitude}',
+      if (useEgyptBbox && _countryCode == 'EG') 'bbox': _egyptSearchBbox,
+      'access_token': token,
+    });
 
     try {
       final response = await _client.get(uri);
@@ -1102,12 +1127,12 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     return true;
   }
 
-  bool _isRelevantEgyptSearchResult(
-    _MapSearchResult result,
-    LatLng biasPoint,
-  ) {
-    final distanceKm =
-        _distance.as(LengthUnit.Kilometer, biasPoint, result.point);
+  bool _isRelevantEgyptSearchResult(_MapSearchResult result, LatLng biasPoint) {
+    final distanceKm = _distance.as(
+      LengthUnit.Kilometer,
+      biasPoint,
+      result.point,
+    );
     return _countryCode != 'EG' || distanceKm <= 250;
   }
 
@@ -1124,7 +1149,8 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
 
     int scoreResult(_MapSearchResult result) {
       final haystack = _normalizeResultText(
-          '${result.placeName} ${result.addressLine} ${result.city} ${result.street}');
+        '${result.placeName} ${result.addressLine} ${result.city} ${result.street}',
+      );
       var score = 0;
 
       for (final token in queryTokens) {
@@ -1285,8 +1311,12 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     ]);
     final street = _extractStreet(feature);
     final city = _extractCity(feature);
-    final addressLine =
-        _extractAddressLine(feature, properties, street, placeName);
+    final addressLine = _extractAddressLine(
+      feature,
+      properties,
+      street,
+      placeName,
+    );
 
     return _ResolvedMapLocation(
       placeName: placeName.isNotEmpty ? placeName : coordinatesLabel,
@@ -1446,9 +1476,11 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     }
 
     if (coordinates is Map) {
-      final lng = _featureDouble(coordinates, 'longitude') ??
+      final lng =
+          _featureDouble(coordinates, 'longitude') ??
           _featureDouble(coordinates, 'lon');
-      final lat = _featureDouble(coordinates, 'latitude') ??
+      final lat =
+          _featureDouble(coordinates, 'latitude') ??
           _featureDouble(coordinates, 'lat');
       if (lng != null && lat != null) {
         return LatLng(lat, lng);
@@ -1459,7 +1491,8 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
     if (properties is Map) {
       final coords = properties['coordinates'];
       if (coords is Map) {
-        final lng = _featureDouble(coords, 'longitude') ??
+        final lng =
+            _featureDouble(coords, 'longitude') ??
             _featureDouble(coords, 'lon');
         final lat =
             _featureDouble(coords, 'latitude') ?? _featureDouble(coords, 'lat');
@@ -1618,9 +1651,7 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
         (a.longitude - b.longitude).abs() < 0.000001;
   }
 
-  Future<_MapSearchResult?> _showSearchResults(
-    List<_MapSearchResult> results,
-  ) {
+  Future<_MapSearchResult?> _showSearchResults(List<_MapSearchResult> results) {
     final height = math
         .min(
           MediaQuery.of(context).size.height * 0.7,
@@ -1656,8 +1687,9 @@ class _SelectAddressMapState extends State<SelectAddressMap> {
                   width: 46,
                   height: 5,
                   decoration: BoxDecoration(
-                    color:
-                        theme.colorScheme.outlineVariant.withValues(alpha: 0.7),
+                    color: theme.colorScheme.outlineVariant.withValues(
+                      alpha: 0.7,
+                    ),
                     borderRadius: BorderRadius.circular(999),
                   ),
                 ),
@@ -1718,8 +1750,9 @@ class _MapSearchResult {
   final String street;
 
   String get title {
-    final candidate =
-        street.trim().isNotEmpty ? street.trim() : placeName.trim();
+    final candidate = street.trim().isNotEmpty
+        ? street.trim()
+        : placeName.trim();
     if (candidate.isEmpty) {
       return '${point.latitude.toStringAsFixed(5)}, ${point.longitude.toStringAsFixed(5)}';
     }
@@ -1805,8 +1838,10 @@ class _MapSearchBar extends StatelessWidget {
               Icons.search_rounded,
               color: Color(0xFFFF6500),
             ),
-            suffixIconConstraints:
-                const BoxConstraints(minWidth: 52, minHeight: 44),
+            suffixIconConstraints: const BoxConstraints(
+              minWidth: 52,
+              minHeight: 44,
+            ),
             suffixIcon: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -1829,8 +1864,10 @@ class _MapSearchBar extends StatelessWidget {
               ],
             ),
             border: InputBorder.none,
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 17),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 12,
+              vertical: 17,
+            ),
           ),
         ),
       ),
@@ -1839,10 +1876,7 @@ class _MapSearchBar extends StatelessWidget {
 }
 
 class _SearchActionButton extends StatelessWidget {
-  const _SearchActionButton({
-    required this.isSearching,
-    required this.onTap,
-  });
+  const _SearchActionButton({required this.isSearching, required this.onTap});
 
   final bool isSearching;
   final VoidCallback onTap;
@@ -1880,9 +1914,9 @@ class _SearchActionButton extends StatelessWidget {
                     Text(
                       isArabic ? 'بحث' : 'Search',
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w800,
-                          ),
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                   ],
                 ),
@@ -1893,10 +1927,7 @@ class _SearchActionButton extends StatelessWidget {
 }
 
 class _SearchResultTile extends StatelessWidget {
-  const _SearchResultTile({
-    required this.result,
-    required this.onTap,
-  });
+  const _SearchResultTile({required this.result, required this.onTap});
 
   final _MapSearchResult result;
   final VoidCallback onTap;
@@ -2148,10 +2179,7 @@ class _BottomLocationPanel extends StatelessWidget {
 }
 
 class _InfoChip extends StatelessWidget {
-  const _InfoChip({
-    required this.label,
-    required this.value,
-  });
+  const _InfoChip({required this.label, required this.value});
 
   final String label;
   final String value;
@@ -2162,8 +2190,9 @@ class _InfoChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color:
-            theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.45),
+        color: theme.colorScheme.surfaceContainerHighest.withValues(
+          alpha: 0.45,
+        ),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -2192,10 +2221,7 @@ class _InfoChip extends StatelessWidget {
 }
 
 class _FloatingMapButton extends StatelessWidget {
-  const _FloatingMapButton({
-    required this.icon,
-    required this.onTap,
-  });
+  const _FloatingMapButton({required this.icon, required this.onTap});
 
   final IconData icon;
   final VoidCallback onTap;
@@ -2212,10 +2238,7 @@ class _FloatingMapButton extends StatelessWidget {
         child: SizedBox(
           width: 52,
           height: 52,
-          child: Icon(
-            icon,
-            color: const Color(0xFFFF6500),
-          ),
+          child: Icon(icon, color: const Color(0xFFFF6500)),
         ),
       ),
     );
@@ -2304,9 +2327,9 @@ class _OsmMapFallback extends StatelessWidget {
               child: Text(
                 '© OpenStreetMap',
                 style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                      fontWeight: FontWeight.w800,
-                      color: const Color(0xFFFF6500),
-                    ),
+                  fontWeight: FontWeight.w800,
+                  color: const Color(0xFFFF6500),
+                ),
               ),
             ),
           ),
